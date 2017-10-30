@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/react.development.js"></script>
+		<script src="js/react-dom.development.js"></script>
+		<script src="js/babel.js"></script>
+		<style>
+			.red{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			var a = "world";
+			var arr = ["aa","ab","ac","ad"];
+			var obj = {"name":"ls","age":"99"};
+			ReactDOM.render(
+				<div>
+					<ul>
+						{
+							arr.map((key,index)=>{
+								if(index==0){
+									return <li key={index} className='red'>{key}</li>
+								}else{
+									return <li key={index}>{key}</li>
+								}
+							})
+						}
+					</ul>
+					<ul>
+						{
+							Object.keys(obj).map((key,index)=>{
+								return <li key={index}>{key}:{obj[key]}</li>
+							})
+						}
+					</ul>
+				</div>,
+				document.getElementById("app")
+			)
+		</script>
+	</body>
+</html>
